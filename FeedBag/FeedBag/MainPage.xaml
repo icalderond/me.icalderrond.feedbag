@@ -1,25 +1,84 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="FeedBag.MainPage">
+             xmlns:iOSSpecific="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             x:Class="FeedBag.MainPage"
+             iOSSpecific:Page.UseSafeArea="True">
+    <Grid RowDefinitions="*,*,*"
+          RowSpacing="0">
+        <!--<Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>-->
+        <Grid Grid.Row="0">
+            <StackLayout VerticalOptions="End">
+                <Image BackgroundColor="SkyBlue"
+                       WidthRequest="100"
+                       HeightRequest="100"
+                       VerticalOptions="Center"
+                       HorizontalOptions="Center"/>
+                <Label Text="Welcome Back"
+                       HorizontalOptions="Center"
+                       FontSize="40"
+                       FontAttributes="Bold"/>
+            </StackLayout>
+        </Grid>
 
-    <StackLayout>
-        <Frame BackgroundColor="#2196F3" Padding="24" CornerRadius="0">
-            <Label Text="Welcome to Xamarin.Forms!" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
-        </Frame>
-        <Label Text="Start developing now on ITNL" FontSize="Title" Padding="30,10,30,10"/>
-        <Label Text="Make changes to your XAML file and save to see your UI update in the running app with XAML Hot Reload. Give it a try!" FontSize="16" Padding="30,0,30,0"/>
-        <Label FontSize="16" Padding="30,24,30,0">
-            <Label.FormattedText>
-                <FormattedString>
-                    <FormattedString.Spans>
-                        <Span Text="Learn more at "/>
-                        <Span Text="https://aka.ms/xamarin-quickstart" FontAttributes="Bold"/>
-                    </FormattedString.Spans>
-                </FormattedString>
-            </Label.FormattedText>
-        </Label>
-    </StackLayout>
+        <Grid Grid.Row="1" Padding="40,0">
+            <StackLayout VerticalOptions="Center">
+                <Entry Placeholder="Email" />
+                <Entry Placeholder="Password" IsPassword="True"/>
+            </StackLayout>
+        </Grid>
 
+        <Grid Grid.Row="2" RowDefinitions="auto,*">
+            <BoxView Grid.Row="0" HeightRequest="1" Color="LightGray" Margin="40,0"
+                     VerticalOptions="Center"/>
+            <Label HorizontalOptions="Center" Text="or" BackgroundColor="White"
+                   WidthRequest="40"
+                   HorizontalTextAlignment="Center"/>
+            <Grid Grid.Row="1" ColumnDefinitions="*,*,*">
+                <Frame Grid.Column="0"
+                       BorderColor="Black"
+                       CornerRadius="15"
+                       HasShadow="False"
+                       WidthRequest="60"
+                       HeightRequest="60"
+                       VerticalOptions="Center"
+                       HorizontalOptions="Center"
+                       Padding="0"
+                       IsClippedToBounds="True">
+                    <Label Text="F" VerticalOptions="Center"
+                           HorizontalOptions="Center"/>
+                </Frame>
+                <Frame Grid.Column="1"
+                       BorderColor="Black"
+                       CornerRadius="15"
+                       HasShadow="False"
+                       WidthRequest="60"
+                       HeightRequest="60"
+                       VerticalOptions="Center"
+                       HorizontalOptions="Center"
+                       Padding="0"
+                       IsClippedToBounds="True">
+                    <Label Text="G" VerticalOptions="Center"
+                           HorizontalOptions="Center"/>
+                </Frame>
+                <Frame Grid.Column="2"
+                       BorderColor="Black"
+                       CornerRadius="15"
+                       HasShadow="False"
+                       WidthRequest="60"
+                       HeightRequest="60"
+                       VerticalOptions="Center"
+                       HorizontalOptions="Center"
+                       Padding="0"
+                       IsClippedToBounds="True">
+                    <Label Text="A" VerticalOptions="Center"
+                           HorizontalOptions="Center"/>
+                </Frame>
+            </Grid>
+        </Grid>
+    </Grid>
 </ContentPage>
-
