@@ -91,6 +91,23 @@
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\app_icon_120x120.png" />
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\app_icon_29x29.png" />
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\app_icon_76x76.png" />
+    <ImageAsset Include="Assets.xcassets\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\ic_hello.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\ic_hello.imageset\ic_hello 2.png" />
+    <ImageAsset Include="Assets.xcassets\ic_hello.imageset\ic_hello 1.png" />
+    <ImageAsset Include="Assets.xcassets\ic_hello.imageset\ic_hello.png" />
+    <ImageAsset Include="Assets.xcassets\ic_apple.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\ic_facebook.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\ic_google.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\ic_apple.imageset\ic_apple.png" />
+    <ImageAsset Include="Assets.xcassets\ic_apple.imageset\ic_apple 1.png" />
+    <ImageAsset Include="Assets.xcassets\ic_apple.imageset\ic_apple 2.png" />
+    <ImageAsset Include="Assets.xcassets\ic_facebook.imageset\ic_facebook.png" />
+    <ImageAsset Include="Assets.xcassets\ic_facebook.imageset\ic_facebook 1.png" />
+    <ImageAsset Include="Assets.xcassets\ic_facebook.imageset\ic_facebook 2.png" />
+    <ImageAsset Include="Assets.xcassets\ic_google.imageset\ic_google.png" />
+    <ImageAsset Include="Assets.xcassets\ic_google.imageset\ic_google 1.png" />
+    <ImageAsset Include="Assets.xcassets\ic_google.imageset\ic_google 2.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
