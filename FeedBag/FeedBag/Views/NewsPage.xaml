@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:iOSSpecific="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    xmlns:viewmodels="clr-namespace:FeedBag.ViewModels"
+    iOSSpecific:Page.UseSafeArea="True"
+    x:Class="FeedBag.Views.NewsPage"
+    x:DataType="viewmodels:NewsViewModel"
+    NavigationPage.HasNavigationBar="False"
+    >
+    <ContentPage.Content>
+        <Grid RowDefinitions="auto,auto,*" RowSpacing="0"
+              Padding="15,20">
+            <Label Grid.Row="0" Text="The Guardians Worlds"
+                   FontSize="40" FontAttributes="Bold"/>
+            <Grid Grid.Row="1"
+                  RowDefinitions="auto,*"
+                  Padding="0,15,0,0">
+                <Label Text="Breaking News"
+                       FontSize="Large"
+                       FontAttributes="Bold"/>
+                <Frame Grid.Row="1"
+                       HasShadow="True"
+                       IsClippedToBounds="True"
+                       Padding="0"
+                       CornerRadius="15"
+                       HeightRequest="200"
+                       WidthRequest="350"
+                       VerticalOptions="Center"
+                       HorizontalOptions="Center">
+                    <Grid>
+                        <Image Source="{Binding FeedNewItem.UrlImage}"
+                               Aspect="AspectFill"
+                               HorizontalOptions="FillAndExpand"
+                               VerticalOptions="FillAndExpand"/>
+                        <Grid>
+                            <Grid.Background>
+                             <LinearGradientBrush EndPoint="0,1">
+                                 <GradientStop Color="Transparent"
+                                               Offset="0.1" />
+                                 <GradientStop Color="Black"
+                                               Offset="1.0" />
+                             </LinearGradientBrush>
+                            </Grid.Background>
+                        <Label Text="{Binding FeedNewItem.Title}"
+                               VerticalOptions="End"
+                               FontAttributes="Bold"
+                               Margin="15"
+                               TextColor="White"/>
+                        </Grid>
+                    </Grid>
+                </Frame>
+            </Grid>
+            <Grid Grid.Row="2"
+                  RowDefinitions="auto, *"
+                  Padding="0,15,0,0">
+                <Label Text="Recomendations"
+                       FontSize="Large"
+                       FontAttributes="Bold"/>
+                <CollectionView Grid.Row="1"
+                                ItemsSource="{Binding FeedNewList}">
+                    <!-- DataTempalte -->
+                </CollectionView>
+            </Grid>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
+

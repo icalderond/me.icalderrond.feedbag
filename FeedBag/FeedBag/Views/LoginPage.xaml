@@ -6,7 +6,8 @@
     xmlns:viewmodels="clr-namespace:FeedBag.ViewModels"
     x:Class="FeedBag.Views.LoginPage"
     x:DataType="viewmodels:LoginViewModel"
-    iOSSpecific:Page.UseSafeArea="True">
+    iOSSpecific:Page.UseSafeArea="True"
+    NavigationPage.HasNavigationBar="False">
     <ContentPage.Content>
           <Grid RowDefinitions="*,auto,*"
           RowSpacing="0">

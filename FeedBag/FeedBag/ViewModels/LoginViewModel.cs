@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using FeedBag.Views;
 using Xamarin.Forms;
 
 namespace FeedBag.ViewModels
@@ -14,11 +15,9 @@ namespace FeedBag.ViewModels
 
         private async Task EnterMethod(object obj)
         {
-            //IsLoading = true;
-            //await Task.Delay(TimeSpan.FromSeconds(15).Milliseconds);
-            //IsLoading = false;
-
-            // Navegar a la siguiente pagina
+            IsLoading = true;
+            await App.Current.MainPage.Navigation.PushAsync(new NewsPage());
+            IsLoading = false;
         }
 
         private string _Email;
