@@ -1,8 +1,21 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Application xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:FeedBag"
              x:Class="FeedBag.App">
     <Application.Resources>
-
+         <local:IsNullOrEmptyConverter x:Key="IsNullOrEmptyConverter"/>
+        <Style x:Key="frameSocialStyle" TargetType="Frame">
+            <Setter Property="BorderColor" Value="Black"/>
+            <Setter Property="CornerRadius" Value="10"/>
+            <Setter Property="HasShadow" Value="False"/>
+            <Setter Property="WidthRequest" Value="60"/>
+            <Setter Property="HeightRequest" Value="60"/>
+            <Setter Property="VerticalOptions" Value="Center"/>
+            <Setter Property="HorizontalOptions" Value="Center"/>
+            <Setter Property="Padding" Value="0"/>
+            <Setter Property="IsClippedToBounds" Value="true"/>
+        </Style>
+        <Color x:Key="KingBlueColor">#3048EA</Color>
     </Application.Resources>
 </Application>

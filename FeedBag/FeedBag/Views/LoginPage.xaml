@@ -4,24 +4,9 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:iOSSpecific="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
     xmlns:viewmodels="clr-namespace:FeedBag.ViewModels"
-    xmlns:local="clr-namespace:FeedBag"
     x:Class="FeedBag.Views.LoginPage"
     x:DataType="viewmodels:LoginViewModel"
     iOSSpecific:Page.UseSafeArea="True">
-    <ContentPage.Resources>
-        <local:IsNullOrEmptyConverter x:Key="IsNullOrEmptyConverter"/>
-        <Style x:Key="frameSocialStyle" TargetType="Frame">
-            <Setter Property="BorderColor" Value="Black"/>
-            <Setter Property="CornerRadius" Value="10"/>
-            <Setter Property="HasShadow" Value="False"/>
-            <Setter Property="WidthRequest" Value="60"/>
-            <Setter Property="HeightRequest" Value="60"/>
-            <Setter Property="VerticalOptions" Value="Center"/>
-            <Setter Property="HorizontalOptions" Value="Center"/>
-            <Setter Property="Padding" Value="0"/>
-            <Setter Property="IsClippedToBounds" Value="true"/>
-        </Style>
-    </ContentPage.Resources>
     <ContentPage.Content>
           <Grid RowDefinitions="*,auto,*"
           RowSpacing="0">
@@ -45,8 +30,7 @@
                          Spacing="20">
                 <Entry Placeholder="Email" Text="{Binding Email}"/>
                 <Entry Placeholder="Password" IsPassword="True" Text="{Binding Password}"/>
-                <!-- Text="{Binding Path=Text, Source={x:Reference entryEmail}}"-->
-                <Button Text="Enter" BackgroundColor="#3048EA" TextColor="White"
+                <Button Text="Enter" BackgroundColor="{StaticResource KingBlueColor}" TextColor="White"
                         Command="{Binding EnterCommand}">
                     <Button.Triggers>
                         <DataTrigger TargetType="Button"
@@ -104,7 +88,7 @@
         </Grid>
               <ActivityIndicator VerticalOptions="Center"
                                  HorizontalOptions="Center"
-                                 Color="#3048EA"
+                                 Color="{StaticResource KingBlueColor}"
                                  IsRunning="{Binding IsLoading}"
                                  Grid.RowSpan="3"/>
     </Grid>
