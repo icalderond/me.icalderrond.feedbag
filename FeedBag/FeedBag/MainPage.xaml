@@ -4,20 +4,16 @@
              xmlns:iOSSpecific="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
              x:Class="FeedBag.MainPage"
              iOSSpecific:Page.UseSafeArea="True">
-    <Grid RowDefinitions="*,*,*"
+    <Grid RowDefinitions="*,auto,*"
           RowSpacing="0">
-        <!--<Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>-->
         <Grid Grid.Row="0">
-            <StackLayout VerticalOptions="End">
-                <Image BackgroundColor="SkyBlue"
-                       WidthRequest="100"
-                       HeightRequest="100"
+            <StackLayout VerticalOptions="End"
+                         Margin="0,0,0,40">
+                <Image WidthRequest="120"
+                       HeightRequest="120"
                        VerticalOptions="Center"
-                       HorizontalOptions="Center"/>
+                       HorizontalOptions="Center"
+                       Source="ic_hello"/>
                 <Label Text="Welcome Back"
                        HorizontalOptions="Center"
                        FontSize="40"
@@ -26,22 +22,25 @@
         </Grid>
 
         <Grid Grid.Row="1" Padding="40,0">
-            <StackLayout VerticalOptions="Center">
-                <Entry Placeholder="Email" />
+            <StackLayout VerticalOptions="Center"
+                         Spacing="20">
+                <Entry Placeholder="Email"/>
                 <Entry Placeholder="Password" IsPassword="True"/>
             </StackLayout>
         </Grid>
 
-        <Grid Grid.Row="2" RowDefinitions="auto,*">
-            <BoxView Grid.Row="0" HeightRequest="1" Color="LightGray" Margin="40,0"
+        <Grid Grid.Row="2" RowDefinitions="auto,auto,auto"
+              Padding="0,20,0,0">
+            <BoxView Grid.Row="0" HeightRequest="0.5" Color="LightGray" Margin="40,0"
                      VerticalOptions="Center"/>
             <Label HorizontalOptions="Center" Text="or" BackgroundColor="White"
                    WidthRequest="40"
                    HorizontalTextAlignment="Center"/>
-            <Grid Grid.Row="1" ColumnDefinitions="*,*,*">
+            <Grid Grid.Row="1" ColumnDefinitions="*,*,*"
+                  Margin="40">
                 <Frame Grid.Column="0"
                        BorderColor="Black"
-                       CornerRadius="15"
+                       CornerRadius="10"
                        HasShadow="False"
                        WidthRequest="60"
                        HeightRequest="60"
@@ -49,12 +48,15 @@
                        HorizontalOptions="Center"
                        Padding="0"
                        IsClippedToBounds="True">
-                    <Label Text="F" VerticalOptions="Center"
+                    <Image Source="ic_facebook"
+                           WidthRequest="20"
+                           HeightRequest="20"
+                           VerticalOptions="Center"
                            HorizontalOptions="Center"/>
                 </Frame>
                 <Frame Grid.Column="1"
                        BorderColor="Black"
-                       CornerRadius="15"
+                       CornerRadius="10"
                        HasShadow="False"
                        WidthRequest="60"
                        HeightRequest="60"
@@ -62,12 +64,15 @@
                        HorizontalOptions="Center"
                        Padding="0"
                        IsClippedToBounds="True">
-                    <Label Text="G" VerticalOptions="Center"
+                    <Image Source="ic_google"
+                           WidthRequest="20"
+                           HeightRequest="20"
+                           VerticalOptions="Center"
                            HorizontalOptions="Center"/>
                 </Frame>
                 <Frame Grid.Column="2"
                        BorderColor="Black"
-                       CornerRadius="15"
+                       CornerRadius="10"
                        HasShadow="False"
                        WidthRequest="60"
                        HeightRequest="60"
@@ -75,10 +80,21 @@
                        HorizontalOptions="Center"
                        Padding="0"
                        IsClippedToBounds="True">
-                    <Label Text="A" VerticalOptions="Center"
+                    <Image Source="ic_apple"
+                           WidthRequest="20"
+                           HeightRequest="20"
+                           VerticalOptions="Center"
                            HorizontalOptions="Center"/>
                 </Frame>
             </Grid>
+            <Label Grid.Row="2" Margin="40,0" HorizontalOptions="Center">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="Don't have an account? "/>
+                        <Span Text="Sign up" FontAttributes="Bold"/>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
         </Grid>
     </Grid>
 </ContentPage>
