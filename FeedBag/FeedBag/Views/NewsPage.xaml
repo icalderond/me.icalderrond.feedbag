@@ -7,82 +7,80 @@
     iOSSpecific:Page.UseSafeArea="True"
     x:Class="FeedBag.Views.NewsPage"
     x:DataType="viewmodels:NewsViewModel"
-             xmlns:model="clr-namespace:FeedBag.Models"
-    NavigationPage.HasNavigationBar="False"
-    >
+    NavigationPage.HasNavigationBar="False">
     <ContentPage.Content>
-        <Grid RowDefinitions="auto,auto,*" RowSpacing="0"
-              Padding="15,20">
-            <!-- Titulo del periódico digital-->
-            <Label Grid.Row="0" Text="The Guardians Worlds"
-                   FontSize="40" FontAttributes="Bold"/>
+        <Grid>
+            <Grid RowDefinitions="auto,auto,*" RowSpacing="0" Padding="15,20">
+                <!-- Titulo del periódico digital-->
+                <Label Grid.Row="0" Text="The Guardians Worlds"
+                       FontSize="40" FontAttributes="Bold"/>
 
-            <!-- Articulo principal a visualizar-->
-            <Grid Grid.Row="1"
-                  RowDefinitions="auto,*"
-                  Padding="0,15,0,0">
-                <Label Text="Breaking News"
-                       FontSize="Large"
-                       FontAttributes="Bold"/>
-                <Frame Grid.Row="1"
-                       HasShadow="True"
-                       IsClippedToBounds="True"
-                       Padding="0"
-                       CornerRadius="15"
-                       HeightRequest="200"
-                       WidthRequest="350"
-                       VerticalOptions="Center"
-                       HorizontalOptions="Center">
-                    <Grid>
-                        <Image Source="{Binding FeedNewItem.UrlImage}"
-                               Aspect="AspectFill"
-                               HorizontalOptions="FillAndExpand"
-                               VerticalOptions="FillAndExpand"/>
+                <!-- Articulo principal a visualizar-->
+                <Grid Grid.Row="1"
+                      RowDefinitions="auto,*"
+                      Padding="0,15,0,0">
+                    <Label Text="Breaking News"
+                           FontSize="Large"
+                           FontAttributes="Bold"/>
+                    <Frame Grid.Row="1"
+                           HasShadow="True"
+                           IsClippedToBounds="True"
+                           Padding="0"
+                           CornerRadius="15"
+                           HeightRequest="200"
+                           WidthRequest="350"
+                           VerticalOptions="Center"
+                           HorizontalOptions="Center">
                         <Grid>
-                            <Grid.Background>
-                             <LinearGradientBrush EndPoint="0,1">
-                                 <GradientStop Color="Transparent"
-                                               Offset="0.1" />
-                                 <GradientStop Color="Black"
-                                               Offset="1.0" />
-                             </LinearGradientBrush>
-                            </Grid.Background>
-                        <Label Text="{Binding FeedNewItem.Title}"
-                               VerticalOptions="End"
-                               FontAttributes="Bold"
-                               Margin="15"
-                               TextColor="White"/>
+                            <Image Source="{Binding FeedNewItem.UrlImage}"
+                                   Aspect="AspectFill"
+                                   HorizontalOptions="FillAndExpand"
+                                   VerticalOptions="FillAndExpand"/>
+                            <Grid>
+                                <Grid.Background>
+                                 <LinearGradientBrush EndPoint="0,1">
+                                     <GradientStop Color="Transparent"
+                                                   Offset="0.1" />
+                                     <GradientStop Color="Black"
+                                                   Offset="1.0" />
+                                 </LinearGradientBrush>
+                                </Grid.Background>
+                            <Label Text="{Binding FeedNewItem.Title}"
+                                   VerticalOptions="End"
+                                   FontAttributes="Bold"
+                                   Margin="15"
+                                   TextColor="White"/>
+                            </Grid>
                         </Grid>
-                    </Grid>
-                </Frame>
-            </Grid>
+                    </Frame>
+                </Grid>
 
-            <!-- Listado de noticias del periódico-->
-            <Grid Grid.Row="2"
-                  RowDefinitions="auto, *"
-                  Padding="0,15,0,0">
-                <Label Text="Recomendations"
-                       FontSize="Large"
-                       FontAttributes="Bold"/>
-                <CollectionView Grid.Row="1"
-                                ItemsSource="{Binding FeedNewList}"
-                                SelectionChangedCommand="{Binding OpenLinkPubCommand}"
-                                SelectionChangedCommandParameter="{Binding Path=SelectedItem.Link ,Source={RelativeSource Self}}"
-                                SelectionMode="Single"
-                                ItemTemplate="{StaticResource newsItemTemplate}">
-                    <CollectionView.ItemsLayout>
-                        <LinearItemsLayout Orientation="Vertical"
-                                           ItemSpacing="20"/>
-                    </CollectionView.ItemsLayout>
-                </CollectionView>
+                <!-- Listado de noticias del periódico-->
+                <Grid Grid.Row="2"
+                      RowDefinitions="auto, *"
+                      Padding="0,15,0,0">
+                    <Label Text="Recomendations"
+                           FontSize="Large"
+                           FontAttributes="Bold"/>
+                    <CollectionView Grid.Row="1"
+                                    ItemsSource="{Binding FeedNewList}"
+                                    SelectionChangedCommand="{Binding OpenLinkPubCommand}"
+                                    SelectionChangedCommandParameter="{Binding Path=SelectedItem.Link ,Source={RelativeSource Self}}"
+                                    SelectionMode="Single"
+                                    ItemTemplate="{StaticResource newsItemTemplate}">
+                        <CollectionView.ItemsLayout>
+                            <LinearItemsLayout Orientation="Vertical"
+                                               ItemSpacing="20"/>
+                        </CollectionView.ItemsLayout>
+                    </CollectionView>
+                </Grid>
             </Grid>
-
             <ActivityIndicator VerticalOptions="FillAndExpand"
                                HorizontalOptions="FillAndExpand"
                                Color="{StaticResource KingBlueColor}"
-                               IsRunning="{Binding IsLoading}"
-                               Grid.RowSpan="3"
-                               BackgroundColor="#4D000000"/>
+                               BackgroundColor="{StaticResource BlackAlpha30}"
+                               IsVisible="{Binding IsLoading}"
+                               IsRunning="{Binding IsLoading}"/>
         </Grid>
     </ContentPage.Content>
 </ContentPage>

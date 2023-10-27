@@ -9,89 +9,89 @@
     iOSSpecific:Page.UseSafeArea="True"
     NavigationPage.HasNavigationBar="False">
     <ContentPage.Content>
-          <Grid RowDefinitions="*,auto,*"
-          RowSpacing="0">
-        <Grid Grid.Row="0">
-            <StackLayout VerticalOptions="End"
-                         Margin="0,0,0,40">
-                <Image WidthRequest="120"
-                       HeightRequest="120"
-                       VerticalOptions="Center"
-                       HorizontalOptions="Center"
-                       Source="ic_hello"/>
-                <Label Text="Welcome Back"
-                       HorizontalOptions="Center"
-                       FontSize="40"
-                       FontAttributes="Bold"/>
-            </StackLayout>
-        </Grid>
-
-        <Grid Grid.Row="1" Padding="40,0">
-            <StackLayout VerticalOptions="Center"
-                         Spacing="20">
-                <Entry Placeholder="Email" Text="{Binding Email}"/>
-                <Entry Placeholder="Password" IsPassword="True" Text="{Binding Password}"/>
-                <Button Text="Enter" BackgroundColor="{StaticResource KingBlueColor}" TextColor="White"
-                        Command="{Binding EnterCommand}">
-                    <Button.Triggers>
-                        <DataTrigger TargetType="Button"
-                                     Binding="{Binding Email, Converter={StaticResource IsNullOrEmptyConverter}}"
-                                     Value="true">
-                            <Setter Property="IsEnabled" Value="False"/>
-                        </DataTrigger>
-                    </Button.Triggers>
-                </Button>
-            </StackLayout>
-        </Grid>
-
-        <Grid Grid.Row="2" RowDefinitions="auto,auto,auto"
-              Padding="0,20,0,0">
-            <BoxView Grid.Row="0" HeightRequest="0.5" Color="LightGray" Margin="40,0"
-                     VerticalOptions="Center"/>
-            <Label HorizontalOptions="Center" Text="or" BackgroundColor="White"
+        <Grid RowDefinitions="*,auto,*" RowSpacing="0">
+            <Grid Grid.Row="0">
+                <StackLayout VerticalOptions="End"
+                             Margin="0,0,0,40">
+                    <Image WidthRequest="120"
+                           HeightRequest="120"
+                           VerticalOptions="Center"
+                           HorizontalOptions="Center"
+                           Source="ic_hello"/>
+                    <Label Text="Welcome Back"
+                           HorizontalOptions="Center"
+                           FontSize="40"
+                           FontAttributes="Bold"/>
+                </StackLayout>
+            </Grid>
+            <Grid Grid.Row="1" Padding="40,0">
+                <StackLayout VerticalOptions="Center" Spacing="20">
+                    <Entry Placeholder="Email" Text="{Binding Email}"/>
+                    <Entry Placeholder="Password" IsPassword="True" Text="{Binding Password}"/>
+                    <Button Text="Enter"
+                            BackgroundColor="{StaticResource KingBlueColor}"
+                            TextColor="White"
+                            Command="{Binding EnterCommand}">
+                        <Button.Triggers>
+                            <DataTrigger TargetType="Button"
+                                         Binding="{Binding Email, Converter={StaticResource IsNullOrEmptyConverter}}"
+                                         Value="true">
+                                <Setter Property="IsEnabled" Value="False"/>
+                            </DataTrigger>
+                        </Button.Triggers>
+                    </Button>
+                </StackLayout>
+            </Grid>
+            <Grid Grid.Row="2" RowDefinitions="auto,auto,auto" Padding="0,20,0,0">
+                <BoxView Grid.Row="0"
+                         HeightRequest="0.5"
+                         Color="LightGray"
+                         Margin="40,0"
+                         VerticalOptions="Center"/>
+            <Label HorizontalOptions="Center"
+                   Text="or"
+                   BackgroundColor="White"
                    WidthRequest="40"
                    HorizontalTextAlignment="Center"/>
-            <Grid Grid.Row="1" ColumnDefinitions="*,*,*"
-                  Margin="40">
-                <Frame Grid.Column="0"
-                       Style="{StaticResource frameSocialStyle}">
-                    <Image Source="ic_facebook"
-                           WidthRequest="20"
-                           HeightRequest="20"
-                           VerticalOptions="Center"
-                           HorizontalOptions="Center"/>
-                </Frame>
-                <Frame Grid.Column="1"
-                       Style="{StaticResource frameSocialStyle}">
-                    <Image Source="ic_google"
-                           WidthRequest="20"
-                           HeightRequest="20"
-                           VerticalOptions="Center"
-                           HorizontalOptions="Center"/>
-                </Frame>
-                <Frame Grid.Column="2"
-                       Style="{StaticResource frameSocialStyle}">
-                    <Image Source="ic_apple"
-                           WidthRequest="20"
-                           HeightRequest="20"
-                           VerticalOptions="Center"
-                           HorizontalOptions="Center"/>
-                </Frame>
+                <Grid Grid.Row="1" ColumnDefinitions="*,*,*" Margin="40">
+                    <Frame Grid.Column="0" Style="{StaticResource frameSocialStyle}">
+                        <Image Source="ic_facebook"
+                               WidthRequest="20"
+                               HeightRequest="20"
+                               VerticalOptions="Center"
+                               HorizontalOptions="Center"/>
+                    </Frame>
+                    <Frame Grid.Column="1"
+                           Style="{StaticResource frameSocialStyle}">
+                        <Image Source="ic_google"
+                               WidthRequest="20"
+                               HeightRequest="20"
+                               VerticalOptions="Center"
+                               HorizontalOptions="Center"/>
+                    </Frame>
+                    <Frame Grid.Column="2"
+                           Style="{StaticResource frameSocialStyle}">
+                        <Image Source="ic_apple"
+                               WidthRequest="20"
+                               HeightRequest="20"
+                               VerticalOptions="Center"
+                               HorizontalOptions="Center"/>
+                    </Frame>
+                </Grid>
+                <Label Grid.Row="2" Margin="40,0" HorizontalOptions="Center">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Don't have an account? "/>
+                            <Span Text="Sign up" FontAttributes="Bold"/>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
             </Grid>
-            <Label Grid.Row="2" Margin="40,0" HorizontalOptions="Center">
-                <Label.FormattedText>
-                    <FormattedString>
-                        <Span Text="Don't have an account? "/>
-                        <Span Text="Sign up" FontAttributes="Bold"/>
-                    </FormattedString>
-                </Label.FormattedText>
-            </Label>
-        </Grid>
-              <ActivityIndicator VerticalOptions="Center"
-                                 HorizontalOptions="Center"
-                                 Color="{StaticResource KingBlueColor}"
-                                 IsRunning="{Binding IsLoading}"
-                                 Grid.RowSpan="3"/>
+            <ActivityIndicator VerticalOptions="Center"
+                               HorizontalOptions="Center"
+                               Color="{StaticResource KingBlueColor}"
+                               IsRunning="{Binding IsLoading}"
+                               Grid.RowSpan="3"/>
     </Grid>
     </ContentPage.Content>
 </ContentPage>

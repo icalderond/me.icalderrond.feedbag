@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Windows.Input;
 using FeedBag.Models;
+using FeedBag.Services;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 

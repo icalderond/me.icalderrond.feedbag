@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using System.Xml.Linq;
 using FeedBag.Models;
 
-namespace FeedBag
+namespace FeedBag.Services
 {
     public class RSSService
     {
@@ -33,12 +33,14 @@ namespace FeedBag
                                 Title = news.Element("title")?.Value,
                                 Description = news.Element("description")?.Value,
                                 Link = news.Element("link")?.Value,
-                                //UrlImage = news.Elements(media + "content")?.FirstOrDefault()?.Attribute("url")?.Value,
-                                UrlImage = news.Element(media + "content")?.Attribute("url")?.Value,
+                                UrlImage = news.Elements(media + "content").Any()
+                                            ? news.Elements(media + "content")?.Last()?.Attribute("url")?.Value
+                                            : news.Element(media + "content")?.Attribute("url")?.Value,
                                 PubDate = news.Element("pubDate")?.Value,
                                 Creator = news.Element(dc + "creator")?.Value,
-                                //Category = news.Elements("category")?.Last()?.Value
-                                Category = news.Element("category")?.Value
+                                Category = news.Elements("category").Any()
+                                            ? news.Elements("category")?.Last()?.Value
+                                            : news.Element("category")?.Value
                             }).ToList();
 
             return elements;

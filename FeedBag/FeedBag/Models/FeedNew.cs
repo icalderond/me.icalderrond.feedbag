@@ -1,5 +1,4 @@
-﻿using System;
-namespace FeedBag.Models
+﻿namespace FeedBag.Models
 {
     public class FeedNew
     {
