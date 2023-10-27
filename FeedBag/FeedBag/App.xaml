@@ -2,6 +2,7 @@
 <Application xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:FeedBag"
+             xmlns:model="clr-namespace:FeedBag.Models"
              x:Class="FeedBag.App">
     <Application.Resources>
          <local:IsNullOrEmptyConverter x:Key="IsNullOrEmptyConverter"/>
@@ -17,5 +18,37 @@
             <Setter Property="IsClippedToBounds" Value="true"/>
         </Style>
         <Color x:Key="KingBlueColor">#3048EA</Color>
+        <DataTemplate x:Key="newsItemTemplate" x:DataType="model:FeedNew">
+            <Grid ColumnDefinitions="auto,*">
+                <Frame Grid.Column="0"
+                        HasShadow="False"
+                        Padding="0"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Center"
+                        WidthRequest="100"
+                        HeightRequest="100"
+                        CornerRadius="10"
+                        IsClippedToBounds="True">
+                    <Image Source="{Binding UrlImage}"
+                            Aspect="AspectFill"/>
+                </Frame>
+                <StackLayout Grid.Column="1" VerticalOptions="Start">
+                    <Label Text="{Binding Title}"
+                            FontSize="Medium"
+                            FontAttributes="Bold"/>
+                    <Label FontSize="Small">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="{Binding Creator}"
+                                        TextColor="SlateGray"/>
+                                <Span Text=" | " TextColor="LightSlateGray"/>
+                                <Span Text="{Binding PubDate}"
+                                        TextColor="SlateGray"/>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                </StackLayout>
+            </Grid>
+        </DataTemplate>
     </Application.Resources>
 </Application>

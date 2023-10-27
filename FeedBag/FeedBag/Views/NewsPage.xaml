@@ -12,8 +12,11 @@
     <ContentPage.Content>
         <Grid RowDefinitions="auto,auto,*" RowSpacing="0"
               Padding="15,20">
+            <!-- Titulo del periódico digital-->
             <Label Grid.Row="0" Text="The Guardians Worlds"
                    FontSize="40" FontAttributes="Bold"/>
+
+            <!-- Articulo principal a visualizar-->
             <Grid Grid.Row="1"
                   RowDefinitions="auto,*"
                   Padding="0,15,0,0">
@@ -52,6 +55,8 @@
                     </Grid>
                 </Frame>
             </Grid>
+
+            <!-- Listado de noticias del periódico-->
             <Grid Grid.Row="2"
                   RowDefinitions="auto, *"
                   Padding="0,15,0,0">
@@ -59,11 +64,14 @@
                        FontSize="Large"
                        FontAttributes="Bold"/>
                 <CollectionView Grid.Row="1"
-                                ItemsSource="{Binding FeedNewList}">
-                    <!-- DataTempalte -->
+                                ItemsSource="{Binding FeedNewList}"
+                                ItemTemplate="{StaticResource newsItemTemplate}">
+                    <CollectionView.ItemsLayout>
+                        <LinearItemsLayout Orientation="Vertical"
+                                           ItemSpacing="20"/>
+                    </CollectionView.ItemsLayout>
                 </CollectionView>
             </Grid>
         </Grid>
     </ContentPage.Content>
 </ContentPage>
-
