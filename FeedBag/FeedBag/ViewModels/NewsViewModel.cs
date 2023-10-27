@@ -1,8 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using System.Linq;
+using System.Windows.Input;
 using FeedBag.Models;
+using Xamarin.Essentials;
+using Xamarin.Forms;
 
 namespace FeedBag.ViewModels
 {
@@ -11,6 +12,7 @@ namespace FeedBag.ViewModels
         public NewsViewModel()
         {
             Initialize();
+            OpenLinkPubCommand = new Command<object>(OpenLinkPub);
         }
 
         private ObservableCollection<FeedNew> _FeedNewList;
@@ -34,13 +36,30 @@ namespace FeedBag.ViewModels
             set => _RSSService = value;
         }
 
-        public async void Initialize()
+        private bool _IsLoading;
+        public bool IsLoading
         {
+            get => _IsLoading;
+            set => Set(ref _IsLoading, value);
+        }
+
+        public ICommand OpenLinkPubCommand { get; set; }
+
+        private async void Initialize()
+        {
+            IsLoading = true;
             var _feedNewList = await RSSService.GetNews();
 
             FeedNewItem = _feedNewList.FirstOrDefault();
             FeedNewList = new ObservableCollection<FeedNew>(_feedNewList.GetRange(1, _feedNewList.Count - 1));
+            IsLoading = false;
+        }
+
+        private void OpenLinkPub(object _linkObject)
+        {
+            var linkString = _linkObject.ToString();
+            //Launcher.OpenAsync(linkString);
+            Browser.OpenAsync(linkString, BrowserLaunchMode.SystemPreferred);
         }
     }
 }
-

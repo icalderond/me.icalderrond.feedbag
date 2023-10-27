@@ -7,6 +7,7 @@
     iOSSpecific:Page.UseSafeArea="True"
     x:Class="FeedBag.Views.NewsPage"
     x:DataType="viewmodels:NewsViewModel"
+             xmlns:model="clr-namespace:FeedBag.Models"
     NavigationPage.HasNavigationBar="False"
     >
     <ContentPage.Content>
@@ -65,6 +66,9 @@
                        FontAttributes="Bold"/>
                 <CollectionView Grid.Row="1"
                                 ItemsSource="{Binding FeedNewList}"
+                                SelectionChangedCommand="{Binding OpenLinkPubCommand}"
+                                SelectionChangedCommandParameter="{Binding Path=SelectedItem.Link ,Source={RelativeSource Self}}"
+                                SelectionMode="Single"
                                 ItemTemplate="{StaticResource newsItemTemplate}">
                     <CollectionView.ItemsLayout>
                         <LinearItemsLayout Orientation="Vertical"
@@ -72,6 +76,13 @@
                     </CollectionView.ItemsLayout>
                 </CollectionView>
             </Grid>
+
+            <ActivityIndicator VerticalOptions="FillAndExpand"
+                               HorizontalOptions="FillAndExpand"
+                               Color="{StaticResource KingBlueColor}"
+                               IsRunning="{Binding IsLoading}"
+                               Grid.RowSpan="3"
+                               BackgroundColor="#4D000000"/>
         </Grid>
     </ContentPage.Content>
 </ContentPage>

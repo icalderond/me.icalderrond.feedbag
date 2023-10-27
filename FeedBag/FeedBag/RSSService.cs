@@ -16,6 +16,7 @@ namespace FeedBag
         {
             _webClient = new WebClient();
             _rssWorldUrlString = @"https://www.theguardian.com/world/rss";
+            //_rssWorldUrlString = @"https://rss.nytimes.com/services/xml/rss/nyt/World.xml";
         }
 
         public async Task<List<FeedNew>> GetNews()
@@ -29,13 +30,15 @@ namespace FeedBag
             var elements = (from news in xDocument.Descendants("channel").Elements("item")
                             select new FeedNew
                             {
-                                Title = news.Element("title").Value,
-                                Description = news.Element("description").Value,
-                                Link = news.Element("link").Value,
-                                UrlImage = news.Elements(media + "content").Last().Attribute("url").Value,
-                                PubDate = news.Element("pubDate").Value,
-                                Creator = news.Element(dc + "creator").Value,
-                                Category = news.Elements("category").Last().Value
+                                Title = news.Element("title")?.Value,
+                                Description = news.Element("description")?.Value,
+                                Link = news.Element("link")?.Value,
+                                //UrlImage = news.Elements(media + "content")?.FirstOrDefault()?.Attribute("url")?.Value,
+                                UrlImage = news.Element(media + "content")?.Attribute("url")?.Value,
+                                PubDate = news.Element("pubDate")?.Value,
+                                Creator = news.Element(dc + "creator")?.Value,
+                                //Category = news.Elements("category")?.Last()?.Value
+                                Category = news.Element("category")?.Value
                             }).ToList();
 
             return elements;
