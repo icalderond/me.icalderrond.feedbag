@@ -20,3 +20,20 @@ Los temas aprendidos en este proyecto son los siguientes:
 - Navigation (PushAsyn, PopAsync)
 - CollectionView
 - Consumo de servicios
+
+## Fuentes para el diseño y los datos
+### UI
+- Login
+https://dribbble.com/shots/20328817-Loyalty-App
+- News
+https://dribbble.com/shots/20776712-GoRead-News-App
+### Data
+- RSS NY Times mundo
+https://rss.nytimes.com/services/xml/rss/nyt/World.xml
+- RSS NY Times Home Pages
+https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml
+- The guardian World
+https://www.theguardian.com/world/rss
+
+## Screen video
+![Alt Text](Screenshoot/rss_the_guardian.gif)
